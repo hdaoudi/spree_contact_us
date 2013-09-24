@@ -10,11 +10,9 @@
   <% end %>
 <% end %>
 
-<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @contact } %>
-
 <h1><%= t('contact_us') %></h1>
 <%= form_for @contact, :url => contacts_path, :html => { :novalidate => '' } do |f| %>
-  <input type="hidden" name="stage" value="confirm">
+  <input type="hidden" name="stage" value="send">
   <% if SpreeContactUs.require_name %>
     <p>
       <%= f.label :name %>
@@ -40,6 +38,6 @@
     <%= f.text_area :message, class: 'required' %>
   </p>
   <p>
-    <%= f.submit t('confirm'), :alt => t('confirm'), :id => 'contact_us_contact_confirm', :title => t('confirm') %>
+    <%= f.submit t('submit'), :alt => t('submit'), :id => 'contact_us_contact_submit', :title => t('submit') %>
   </p>
 <% end %>

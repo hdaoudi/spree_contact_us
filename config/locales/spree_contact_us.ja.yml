@@ -20,8 +20,6 @@ ja:
         new:
           contact_us: "お問い合わせ "
           submit: "送信する"
+          confirm: "確認する"
       notices:
         success: "お問い合わせを送信しました。"
-
-
-

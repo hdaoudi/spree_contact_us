@@ -4,7 +4,9 @@ class Spree::ContactUs::ContactsController < Spree::StoreController
   def create
     @contact = Spree::ContactUs::Contact.new(params[:contact_us_contact])
 
-    if @contact.save
+    if params[:stage] == 'confirm' and @contact.valid?
+      render :confirm
+    elsif params[:stage] == 'send' and @contact.save
       if Spree::ContactUs::Config.contact_tracking_message.present?
         flash[:contact_tracking] = Spree::ContactUs::Config.contact_tracking_message
       end
