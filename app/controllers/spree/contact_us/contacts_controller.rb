@@ -6,7 +6,7 @@ class Spree::ContactUs::ContactsController < Spree::StoreController
 
     if params[:stage] == 'confirm' and @contact.valid?
       render :confirm
-    elsif params[:stage] == 'send' and @contact.save
+    elsif params[:go_back] != 'yes' and params[:stage] == 'send' and @contact.save
       if Spree::ContactUs::Config.contact_tracking_message.present?
         flash[:contact_tracking] = Spree::ContactUs::Config.contact_tracking_message
       end
